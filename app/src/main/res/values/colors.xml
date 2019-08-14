@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#54a4f4</color>
+    <color name="colorPrimaryDark">#4799e9</color>
+    <color name="colorAccent">#0072e2</color>
+    <color name="yellow">#ffa201</color>
+    <color name="yellow_invisible">#85ffa201</color>
+    <color name="yellow2">#fff70c</color>
+    <color name="yellow3">#ffe45d</color>
+    <color name="yellow4">#f7e6ff07</color>
+    <color name="speach1">#7ac9ef77</color>
+    <color name="speach2">#7affa201</color>
+
+</resources>

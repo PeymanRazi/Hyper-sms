@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_margin="1dp"
+        app:cardCornerRadius="20dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layoutDirection="ltr"
+            android:id="@+id/searchSms"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/backOfList3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                app:srcCompat="?android:attr/actionModeCloseDrawable" />
+            <TextView
+                android:id="@+id/contactAddress"
+                android:textColor="@color/colorAccent"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:text="شماره تماس"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+
+
+        <ListView
+            android:id ="@+id/listView"
+            android:layout_weight="100"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:divider="@null"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"/>
+
+        <LinearLayout
+            android:id="@+id/llMsgCompose"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:elevation="50dp">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="6dp"
+                        app:cardCornerRadius="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layoutDirection="rtl"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/new_message"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_weight="0.9"
+                                android:background="@color/cardview_light_background"
+                                android:hint="نوشتن"
+                                android:imeOptions="actionSearch"
+                                android:nestedScrollingEnabled="false" />
+
+                            <ImageView
+                                android:id="@+id/send_message"                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.1"
+                                android:src="@drawable/send" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.v7.widget.CardView>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+        <!--<LinearLayout-->
+            <!--android:layoutDirection="rtl"-->
+            <!---->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="1" >-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/new_message"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="#FFFFFF"-->
+                <!--android:textColor="#666666"-->
+                <!--android:paddingLeft="6dp"-->
+                <!--android:paddingRight="6dp"/>-->
+
+            <!--&lt;!&ndash;<Button-->
+                <!--android:id="@+id/send_message"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="#3F51B5"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:text="SEND" />&ndash;&gt;-->
+
+
+            <!--<ImageView-->
+                <!--android:id="@+id/send_message"-->
+                <!--android:layout_width="80dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:src="@drawable/send"-->
+                <!--android:background="#b13f51b5"/>-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+</RelativeLayout>
