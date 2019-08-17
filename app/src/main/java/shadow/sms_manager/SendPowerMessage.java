@@ -2,34 +2,31 @@ package shadow.sms_manager;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 
 import java.util.ArrayList;
 
 
 public class SendPowerMessage extends AppCompatActivity implements View.OnClickListener {
 
+    public static EditText mainPassage;
     ArrayList<String> allTexts, codeText;
     SQLiteDatabase database;
     MyDatabase mydb;
     Cursor cu = null;
     String forCompare = "";
     Button sendButton;
-    EditText finder;
     ImageView add;
     AutoCompleteTextView autoCompleteTextView;
     Handler h;
@@ -59,7 +56,7 @@ public class SendPowerMessage extends AppCompatActivity implements View.OnClickL
 
 
         sendButton = (Button) findViewById(R.id.sendButton);
-        finder = (EditText) findViewById(R.id.textFinder);
+        mainPassage = (EditText) findViewById(R.id.textFinder);
 
         sendButton.setOnClickListener(this);
 
@@ -111,7 +108,7 @@ public class SendPowerMessage extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-        new CompressAsyncTask(finder.getText().toString(),this).execute();
+        new CompressAsyncTask(mainPassage.getText().toString(), this).execute();
 
 
     }
@@ -142,7 +139,7 @@ public class SendPowerMessage extends AppCompatActivity implements View.OnClickL
                     cu = database.rawQuery("SELECT * FROM Words WHERE name like'" + s.toString() + "%'", null);
                     while (cu.moveToNext()) {
 
-                        allTexts.add(cu.getString(2).toString().replace("\n", ""));
+                        allTexts.add(cu.getString(2).replace("\n", ""));
                     }
                     final ArrayAdapter adapter = new ArrayAdapter
                             (G.context, android.R.layout.select_dialog_item, allTexts);
@@ -156,7 +153,7 @@ public class SendPowerMessage extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(View v) {
 
-                finder.append(autoCompleteTextView.getText()+" ");
+                mainPassage.append(autoCompleteTextView.getText() + " ");
                 autoCompleteTextView.getText().clear();
 
             }
@@ -166,7 +163,7 @@ public class SendPowerMessage extends AppCompatActivity implements View.OnClickL
 
     //when edit text not empty the send button and add button will show
     private void showSendButton() {
-        finder.addTextChangedListener(new TextWatcher() {
+        mainPassage.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -174,7 +171,7 @@ public class SendPowerMessage extends AppCompatActivity implements View.OnClickL
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if (!finder.getText().toString().isEmpty()) {
+                if (!mainPassage.getText().toString().isEmpty()) {
                     sendButton.setVisibility(View.VISIBLE);
 
 

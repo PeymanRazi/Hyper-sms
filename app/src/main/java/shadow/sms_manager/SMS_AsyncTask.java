@@ -2,11 +2,9 @@ package shadow.sms_manager;
 
 import android.app.Activity;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
@@ -14,13 +12,13 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import static shadow.sms_manager.CompressAsyncTask.submitInbox;
 import static shadow.sms_manager.MainActivity.array;
+import static shadow.sms_manager.SendPowerMessage.mainPassage;
 
 /**
  * Created by Peyman Razi on 05/03/2019.
@@ -28,16 +26,16 @@ import static shadow.sms_manager.MainActivity.array;
 
 public class SMS_AsyncTask extends AsyncTask {
 
-    Thread thread;
-    Handler handler;
-    PendingIntent sentPI, deliveredPI;
-    SmsManager sms;
-    Activity activity;
-    String passageMessage;
-    int finalNumber = 0;
-    String onceAddress = null;
+    private Thread thread;
+    private Handler handler;
+    private PendingIntent sentPI, deliveredPI;
+    private SmsManager sms;
+    private Activity activity;
+    private String passageMessage;
+    private int finalNumber = 0;
+    private String onceAddress;
 
-    public SMS_AsyncTask(Activity activity, String x, @Nullable String onceAddress) {
+    SMS_AsyncTask(Activity activity, String x, @Nullable String onceAddress) {
 
         this.onceAddress = onceAddress;
         this.activity = activity;
@@ -192,4 +190,9 @@ public class SMS_AsyncTask extends AsyncTask {
 
     }
 
+    @Override
+    protected void onPostExecute(Object o) {
+        super.onPostExecute(o);
+        mainPassage.getText().clear();
+    }
 }
